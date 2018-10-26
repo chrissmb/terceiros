@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
+    $empresas = Empresa::all();
     return view('welcome');
 });
+
+Route::get('/', function () {
+
+    return view('inicio');
+});
+
+Route::resource('empresa', 'EmpresaController');
