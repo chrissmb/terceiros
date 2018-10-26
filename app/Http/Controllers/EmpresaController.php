@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Empresa;
 use Illuminate\Http\Request;
+use Validator;
 
 class EmpresaController extends Controller
 {
@@ -25,7 +26,7 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        //
+        return view('empresa.create');
     }
 
     /**
@@ -36,7 +37,21 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'nome' => 'required|max:100'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/empresa')
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        $empresa = new Empresa;
+        $empresa->nome = $request->nome;
+        $empresa->save();
+
+        return redirect('/empresa');
     }
 
     /**
@@ -81,6 +96,7 @@ class EmpresaController extends Controller
      */
     public function destroy(Empresa $empresa)
     {
-        //
+        $empresa->delete();
+        return redirect('/empresa');
     }
 }

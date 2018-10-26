@@ -6,21 +6,31 @@
 
 <h3>Empresas</h3>
 
+<a class="btn btn-success" href="/empresa/create" role="button">Cadastrar</a>
+
 <table class="table">
-    <tbody>
+    <thead>
         <tr>
             <th>#</th>
             <th>Descrição</th>
+            <th></th>
         </tr>
-    </tbody>
-    <thead>
+    </thead>
+    <tbody>
         @foreach ($empresas as $empresa)
             <tr>
                 <td>{{ $empresa->id }}</td>
                 <td>{{ $empresa->nome }}</td>
+                <td>
+                    <form action="{{ url('/empresa/'.$empresa->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
-    </thead>
+    </tbody>
 </table>
 
 @endsection
