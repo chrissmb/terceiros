@@ -22,7 +22,8 @@
                 <td>{{ $empresa->id }}</td>
                 <td><a href="{{ url('/empresas/'.$empresa->id.'/edit') }}">{{ $empresa->nome }}</a></td>
                 <td>
-                    <form action="{{ url('/empresas/'.$empresa->id) }}" method="post">
+                    <form action="{{ url('/empresas/'.$empresa->id) }}" method="post"
+                            onsubmit="return confirm('Deseja realmente excluir?')">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger" type="submit">Delete</button>

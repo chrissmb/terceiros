@@ -41,7 +41,8 @@
                 <td>{{ $colaborador->observacoes }}</td>
                 <td>{{ $colaborador->aceitante_pts }}</td>
                 <td>
-                    <form action="{{ url('/colaboradores/'.$colaborador->id) }}" method="post">
+                    <form action="{{ url('/colaboradores/'.$colaborador->id) }}" method="post"
+                            onsubmit="return confirm('Deseja realmente excluir?')">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger" type="submit">Delete</button>
