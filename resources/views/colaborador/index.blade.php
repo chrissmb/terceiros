@@ -26,8 +26,20 @@
     <tbody>
         @foreach ($colaboradores as $colaborador)
             <tr>
-                <td>{{ $empresa->id }}</td>
-                <td><a href="{{ url('/colaboradores/'.$colaborador->id.'/edit') }}">{{ $empresa->nome }}</a></td>
+                <td>{{ $colaborador->id }}</td>
+                <td>{{ $colaborador->cpf }}</td>
+                <td>
+                    <a href="{{ url('/colaboradores/'.$colaborador->id.'/edit') }}">
+                        {{ $colaborador->nome }}
+                    </a>
+                </td>
+                <td>{{ $colaborador->empresa_id }}</td>
+                <td>{{ $colaborador->validade_integracao }}</td>
+                <td>{{ $colaborador->validade_exame }}</td>
+                <td>{{ $colaborador->validade_nr20 }}</td>
+                <td>{{ $colaborador->proximo_exame }}</td>
+                <td>{{ $colaborador->observacoes }}</td>
+                <td>{{ $colaborador->aceitante_pts }}</td>
                 <td>
                     <form action="{{ url('/colaboradores/'.$colaborador->id) }}" method="post">
                         @csrf
