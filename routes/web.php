@@ -22,3 +22,5 @@ Route::get('/', function () {
 });
 
 Route::resource('empresas', 'EmpresaController');
+
+Route::resource('colaboradores', 'ColaboradorController');

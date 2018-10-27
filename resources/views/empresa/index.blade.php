@@ -12,7 +12,7 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>Descrição</th>
+            <th>Nome</th>
             <th></th>
         </tr>
     </thead>
