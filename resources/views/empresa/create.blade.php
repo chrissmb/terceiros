@@ -6,11 +6,11 @@
 
 <h3>Cadastro de empresa</h3>
 
-<form action="/empresa" method="post">
+<form action="/empresas" method="post">
     @csrf
     <div class="form-group">
       <label for="nome">Nome</label>
-      <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome"/>
+      <input type="text" name="nome" class="form-control"/>
       <button type="submit" class="btn btn-success">Cadastrar</button>
     </div>
 </form>

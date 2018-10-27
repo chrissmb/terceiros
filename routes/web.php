@@ -21,4 +21,4 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-Route::resource('empresa', 'EmpresaController');
+Route::resource('empresas', 'EmpresaController');

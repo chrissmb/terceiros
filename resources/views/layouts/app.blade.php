@@ -14,10 +14,10 @@
             <a class="nav-link" href="/">Incio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/empresa">Empresa</a>
+            <a class="nav-link" href="/empresas">Empresas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/colaborador">Colaborador</a>
+            <a class="nav-link" href="/colaborador">Colaboradores</a>
           </li>
         </ul>
 

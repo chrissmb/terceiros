@@ -51,7 +51,7 @@ class EmpresaController extends Controller
         $empresa->nome = $request->nome;
         $empresa->save();
 
-        return redirect('/empresa');
+        return redirect('/empresas');
     }
 
     /**
@@ -73,7 +73,7 @@ class EmpresaController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        //
+        return view('empresa.edit', ['empresa' => $empresa]);
     }
 
     /**
@@ -85,7 +85,9 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-        //
+        $empresa->nome = $request->nome;
+        $empresa->save();
+        return redirect('/empresas');
     }
 
     /**
@@ -97,6 +99,6 @@ class EmpresaController extends Controller
     public function destroy(Empresa $empresa)
     {
         $empresa->delete();
-        return redirect('/empresa');
+        return redirect('/empresas');
     }
 }

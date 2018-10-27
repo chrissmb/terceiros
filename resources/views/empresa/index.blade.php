@@ -6,7 +6,7 @@
 
 <h3>Empresas</h3>
 
-<a class="btn btn-success" href="/empresa/create" role="button">Cadastrar</a>
+<a class="btn btn-success" href="/empresas/create" role="button">Cadastrar</a>
 
 <table class="table">
     <thead>
@@ -20,9 +20,9 @@
         @foreach ($empresas as $empresa)
             <tr>
                 <td>{{ $empresa->id }}</td>
-                <td>{{ $empresa->nome }}</td>
+                <td><a href="{{ url('/empresas/'.$empresa->id.'/edit') }}">{{ $empresa->nome }}</a></td>
                 <td>
-                    <form action="{{ url('/empresa/'.$empresa->id) }}" method="post">
+                    <form action="{{ url('/empresas/'.$empresa->id) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger" type="submit">Delete</button>
