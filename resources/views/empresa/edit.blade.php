@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('titulo', 'Cadastro de empresa')
+@section('titulo', 'Edição de empresa')
 
 @section('conteudo')
 
-<h3>Cadastro de empresa</h3>
+<h3>Edição de empresa</h3>
 
 <form action="{{ url('/empresas/'.$empresa->id) }}" method="post">
     @csrf
