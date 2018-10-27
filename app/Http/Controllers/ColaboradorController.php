@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Colaborador;
+use App\Empresa;
 use Illuminate\Http\Request;
 
 class ColaboradorController extends Controller
@@ -14,7 +15,7 @@ class ColaboradorController extends Controller
      */
     public function index()
     {
-        return view('colaborador.index');
+        return view('colaborador.index', ['colaboradores' => Colaborador::all()]);
     }
 
     /**
@@ -24,7 +25,7 @@ class ColaboradorController extends Controller
      */
     public function create()
     {
-        //
+        return view('colaborador.create', ['empresas' => Empresa::all()]);
     }
 
     /**
