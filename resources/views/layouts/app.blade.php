@@ -17,7 +17,7 @@
             <a class="nav-link" href="/empresas">Empresas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/colaborador">Colaboradores</a>
+            <a class="nav-link" href="/colaboradores">Colaboradores</a>
           </li>
         </ul>
 
