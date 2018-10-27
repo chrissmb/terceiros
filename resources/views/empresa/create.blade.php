@@ -11,8 +11,8 @@
     <div class="form-group">
       <label for="nome">Nome</label>
       <input type="text" name="nome" class="form-control"/>
-      <button type="submit" class="btn btn-success">Cadastrar</button>
     </div>
+    <button type="submit" class="btn btn-success">Cadastrar</button>
 </form>
 
 @endsection
