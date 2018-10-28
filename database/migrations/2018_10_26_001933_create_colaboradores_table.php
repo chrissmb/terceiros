@@ -22,7 +22,7 @@ class CreateColaboradoresTable extends Migration
             $table->date('validade_exame');
             $table->date('validade_nr20');
             $table->string('proximo_exame', 20);
-            $table->text('observacoes');
+            $table->text('observacoes')->nullable();
             $table->boolean('aceitante_pts');
 
             $table->foreign('empresa_id')->references('id')->on('empresa');
