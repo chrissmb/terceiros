@@ -37,20 +37,12 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'nome' => 'required|max:100'
+        $request->validate([
+            'nome' => 'required|max:100|min:3'
         ]);
-
-        if ($validator->fails()) {
-            return redirect('/empresa')
-                ->withInput()
-                ->withErrors($validator);
-        }
-
         $empresa = new Empresa;
         $empresa->nome = $request->nome;
         $empresa->save();
-
         return redirect('/empresas');
     }
 
@@ -85,6 +77,9 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
+        $request->validate([
+            'nome' => 'required|max:100|min:3'
+        ]);
         $empresa->nome = $request->nome;
         $empresa->save();
         return redirect('/empresas');
