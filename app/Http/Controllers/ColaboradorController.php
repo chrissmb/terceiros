@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class ColaboradorController extends Controller
 {
+    private $validacao = [
+        'cpf' => 'required|digits:11|unique:colaboradores',
+        'nome' => 'required|min:3|max:100',
+        'empresa_id' => 'required|numeric|gt:0',
+        'validade_integracao' => 'required|Date',
+        'validade_exame' => 'required|Date',
+        'validade_nr20' => 'required|Date',
+        'proximo_exame' => 'required|min:3|max:20',
+        'observacoes' => 'nullable',
+        'aceitante_pts' => 'boolean',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +47,23 @@ class ColaboradorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->flash();
+        $request->validate($this->validacao);
+
+        $colaborador = new Colaborador;
+        $colaborador->cpf = $request->cpf;
+        $colaborador->nome = $request->nome;
+        $colaborador->empresa_id = $request->empresa_id;
+        $colaborador->validade_integracao = $request->validade_integracao;
+        $colaborador->validade_exame = $request->validade_exame;
+        $colaborador->validade_nr20 = $request->validade_nr20;
+        $colaborador->proximo_exame = $request->proximo_exame;
+        $colaborador->observacoes = $request->observacoes;
+        $colaborador->aceitante_pts = $request->aceitante_pts;
+
+        $colaborador->save();
+        return redirect('/colaboradores');
     }
 
     /**

@@ -4,7 +4,7 @@
 
 @section('conteudo')
 
-<h3>Empresas</h3>
+<h3>Colaboradores</h3>
 
 <a class="btn btn-success" href="/colaboradores/create" role="button">Cadastrar</a>
 
