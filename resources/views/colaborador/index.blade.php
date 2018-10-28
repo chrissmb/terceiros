@@ -21,6 +21,7 @@
             <th>Próximo exame</th>
             <th>Observações</th>
             <th>Aceitante PTS</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
