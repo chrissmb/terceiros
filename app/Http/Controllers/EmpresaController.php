@@ -8,6 +8,7 @@ use Validator;
 
 class EmpresaController extends Controller
 {
+    private $validacao = ['nome' => 'required|max:100|min:3'];
     /**
      * Display a listing of the resource.
      *
@@ -37,9 +38,7 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nome' => 'required|max:100|min:3'
-        ]);
+        $request->validate($this->validacao);
         $empresa = new Empresa;
         $empresa->nome = $request->nome;
         $empresa->save();
@@ -77,9 +76,7 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-        $request->validate([
-            'nome' => 'required|max:100|min:3'
-        ]);
+        $request->validate($this->validacao);
         $empresa->nome = $request->nome;
         $empresa->save();
         return redirect('/empresas');
