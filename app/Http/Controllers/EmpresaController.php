@@ -8,7 +8,7 @@ use Validator;
 
 class EmpresaController extends Controller
 {
-    private $validacao = ['nome' => 'required|max:100|min:3'];
+    private $validacao = ['nome' => 'required|max:100|min:3|unique'];
     /**
      * Display a listing of the resource.
      *
