@@ -5,20 +5,24 @@ namespace App\Http\Controllers;
 use App\Colaborador;
 use App\Empresa;
 use Illuminate\Http\Request;
+use App\Rules\Cpf;
 
 class ColaboradorController extends Controller
 {
-    private $validacao = [
-        'cpf' => 'required|digits:11|unique:colaboradores',
-        'nome' => 'required|min:3|max:100',
-        'empresa_id' => 'required|numeric|gt:0',
-        'validade_integracao' => 'required|Date',
-        'validade_exame' => 'required|Date',
-        'validade_nr20' => 'required|Date',
-        'proximo_exame' => 'required|min:3|max:20',
-        'observacoes' => 'nullable',
-        'aceitante_pts' => 'boolean',
-    ];
+    private function validacao() {
+        return [
+            'cpf' => ['required', 'unique:colaboradores', new Cpf],
+            'nome' => 'required|min:3|max:100',
+            'empresa_id' => 'required|numeric|gt:0',
+            'validade_integracao' => 'required|Date',
+            'validade_exame' => 'required|Date',
+            'validade_nr20' => 'required|Date',
+            'proximo_exame' => 'required|min:3|max:20',
+            'observacoes' => 'nullable',
+            'aceitante_pts' => 'boolean',
+        ];
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -49,7 +53,7 @@ class ColaboradorController extends Controller
     {
 
         $request->flash();
-        $request->validate($this->validacao);
+        $request->validate($this->validacao());
 
         $colaborador = new Colaborador;
         $colaborador->cpf = $request->cpf;
