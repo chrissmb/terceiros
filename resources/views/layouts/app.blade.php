@@ -20,7 +20,7 @@
             <a class="nav-link" href="/colaboradores">Colaboradores</a>
           </li>
         </ul>
-
+        
         <div class="container">
             @yield('conteudo')
         </div>
