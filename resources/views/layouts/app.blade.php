@@ -19,6 +19,9 @@
           <li class="nav-item">
             <a class="nav-link" href="/colaboradores">Colaboradores</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link float-right" href="/logout">Logout</a>
+          </li>
         </ul>
         
         <div class="container">

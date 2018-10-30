@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\MessageBag;
 
 class LoginController extends Controller
 {
@@ -36,4 +39,24 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    
+    public function authenticate(Request $request) {
+        $credentials = $request->only('username', 'password');
+        
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('/');
+        }
+
+        return redirect()->back()->withErrors(['Username e/ou senha inválidos!']); 
+    }
+    
+    public function login() {
+        return view('login');
+    }
+    
+    public function logout() {
+        Auth::logout();
+        return redirect()->intended('/');
+    }
+    
 }

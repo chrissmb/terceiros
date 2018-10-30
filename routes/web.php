@@ -22,6 +22,11 @@ Route::get('/', function () {
     return view('inicio', ['colaboradores' => Colaborador::all()]);
 });
 
-Route::resource('empresas', 'EmpresaController');
+Route::resource('empresas', 'EmpresaController')->middleware('auth');
 
-Route::resource('colaboradores', 'ColaboradorController');
+Route::resource('colaboradores', 'ColaboradorController')->middleware('auth');
+
+Route::get('/login', 'Auth\LoginController@login')->name('login');
+
+Route::post('/auth','Auth\LoginController@authenticate');
+Route::get('/logout','Auth\LoginController@logout');
