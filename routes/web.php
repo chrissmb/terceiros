@@ -1,5 +1,7 @@
 <?php
 
+use App\Colaborador;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +19,7 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/', function () {
-
-    return view('inicio');
+    return view('inicio', ['colaboradores' => Colaborador::all()]);
 });
 
 Route::resource('empresas', 'EmpresaController');
