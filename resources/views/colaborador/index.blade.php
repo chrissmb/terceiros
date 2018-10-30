@@ -34,7 +34,7 @@
                         {{ $colaborador->nome }}
                     </a>
                 </td>
-                <td>{{ $colaborador->empresa_id }}</td>
+                <td>{{ $colaborador->empresa->nome }}</td>
                 <td class="d-none d-md-table-cell">{{ $colaborador->validade_integracao }}</td>
                 <td class="d-none d-md-table-cell">{{ $colaborador->validade_exame }}</td>
                 <td class="d-none d-md-table-cell">{{ $colaborador->validade_nr20 }}</td>
