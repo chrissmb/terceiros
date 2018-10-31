@@ -25,7 +25,7 @@ class CreateColaboradoresTable extends Migration
             $table->text('observacoes')->nullable();
             $table->boolean('aceitante_pts');
 
-            $table->foreign('empresa_id')->references('id')->on('empresa');
+            $table->foreign('empresa_id')->references('id')->on('empresas');
             $table->timestamps();
         });
 
