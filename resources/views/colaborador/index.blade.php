@@ -35,12 +35,18 @@
                     </a>
                 </td>
                 <td>{{ $colaborador->empresa->nome }}</td>
-                <td class="d-none d-md-table-cell">{{ $colaborador->validade_integracao }}</td>
-                <td class="d-none d-md-table-cell">{{ $colaborador->validade_exame }}</td>
-                <td class="d-none d-md-table-cell">{{ $colaborador->validade_nr20 }}</td>
+                <td class="d-none d-md-table-cell">{{ date('d/m/Y', strtotime($colaborador->validade_integracao)) }}</td>
+                <td class="d-none d-md-table-cell">{{ date('d/m/Y', strtotime($colaborador->validade_exame)) }}</td>
+                <td class="d-none d-md-table-cell">{{ date('d/m/Y', strtotime($colaborador->validade_nr20)) }}</td>
                 <td class="d-none d-lg-table-cell">{{ $colaborador->proximo_exame }}</td>
                 <td class="d-none d-lg-table-cell">{{ $colaborador->observacoes }}</td>
-                <td class="d-none d-lg-table-cell">{{ $colaborador->aceitante_pts }}</td>
+                <td class="d-none d-lg-table-cell">
+                    @if ($colaborador->aceitante_pts)
+                        Sim
+                    @else
+                        Não
+                    @endif
+                </td>
                 <td>
                     <form action="{{ url('/colaboradores/'.$colaborador->id) }}" method="post"
                             onsubmit="return confirm('Deseja realmente excluir?')">
