@@ -1,6 +1,7 @@
 <?php
 
 use App\Colaborador;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,16 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('inicio', ['colaboradores' => Colaborador::all()]);
+Route::get('/', function (Request $request) {
+    if ($request->has('nome')) {
+        $colaboradores = Colaborador::where(
+            'nome', 'like', $request->nome.'%')->get();
+        return view('inicio', ['colaboradores' => $colaboradores]);
+        
+    }
+    return view('inicio', [
+        'colaboradores' => Colaborador::orderBy('nome', 'desc')->get()
+    ]);
 });
 
 Route::resource('empresas', 'EmpresaController')->middleware('auth');

@@ -6,6 +6,12 @@
 
 <h3>Terceiros</h3>
 
+<form class="form-inline" action="/" method="GET">
+    <label class="sr-only" for="nome">Pesquisar por nome</label>
+    <input type="text" class="form-control m-1" name="nome" placeholder="Pesquisar por nome"/>
+    <input type="submit" class="btn btn-primary m-1" value="Pesquisar"/>
+</form>
+
 <div class="table-responsive">
     <table class="table">
         <thead>
