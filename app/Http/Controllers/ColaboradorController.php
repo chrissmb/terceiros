@@ -78,7 +78,7 @@ class ColaboradorController extends Controller
      */
     public function show(Colaborador $colaborador)
     {
-        //
+        return $colaborador;
     }
 
     /**
@@ -89,7 +89,10 @@ class ColaboradorController extends Controller
      */
     public function edit(Colaborador $colaborador)
     {
-        //
+        return view('colaborador.edit', [
+            'colaborador' => $colaborador,
+            'empresas' => Empresa::all(),
+        ]);
     }
 
     /**
@@ -101,7 +104,20 @@ class ColaboradorController extends Controller
      */
     public function update(Request $request, Colaborador $colaborador)
     {
-        //
+        $request->validate($this->validacao());
+
+        $colaborador->cpf = $request->cpf;
+        $colaborador->nome = $request->nome;
+        $colaborador->empresa_id = $request->empresa_id;
+        $colaborador->validade_integracao = $request->validade_integracao;
+        $colaborador->validade_exame = $request->validade_exame;
+        $colaborador->validade_nr20 = $request->validade_nr20;
+        $colaborador->proximo_exame = $request->proximo_exame;
+        $colaborador->observacoes = $request->observacoes;
+        $colaborador->aceitante_pts = $request->aceitante_pts;
+
+        $colaborador->save();
+        return redirect('/colaboradores');
     }
 
     /**
@@ -112,6 +128,7 @@ class ColaboradorController extends Controller
      */
     public function destroy(Colaborador $colaborador)
     {
-        //
+        $colaborador->delete();
+        return redirect('/colaboradores');
     }
 }

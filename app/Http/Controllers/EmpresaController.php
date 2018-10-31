@@ -53,7 +53,7 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        //
+        return $empresa;
     }
 
     /**
