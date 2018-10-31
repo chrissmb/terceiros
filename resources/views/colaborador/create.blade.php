@@ -55,8 +55,8 @@
     </div>
     <div class="form-group">
         <label for="observacoes">Observações</label>
-        <textarea class="form-control" name="observacoes" rows="2"
-                value="{{ old('observacoes') }}"></textarea>
+        <textarea class="form-control" name="observacoes"
+                rows="2">{{ old('observacoes') }}</textarea>
     </div>
     <div class="form-group">
         <label for="aceitante_pts" class="form-check-label">Aceitante PTS</label>
