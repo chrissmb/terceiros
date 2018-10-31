@@ -24,7 +24,8 @@ Route::get('/', function () {
 
 Route::resource('empresas', 'EmpresaController')->middleware('auth');
 
-Route::resource('colaboradores', 'ColaboradorController')->middleware('auth');
+Route::resource('colaboradores', 'ColaboradorController')
+        ->parameters(['colaboradores' => 'colaborador'])->middleware('auth');
 
 Route::get('/login', 'Auth\LoginController@login')->name('login');
 
