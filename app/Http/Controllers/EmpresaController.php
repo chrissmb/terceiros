@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Empresa;
+use App\Colaborador;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -90,7 +91,15 @@ class EmpresaController extends Controller
      */
     public function destroy(Empresa $empresa)
     {
-        $empresa->delete();
-        return redirect('/empresas');
+        $colaboradores = Colaborador::where('empresa_id', $empresa->id)->first();
+        
+        
+        if ($colaboradores == null) {
+            $empresa->delete();
+            return redirect()->back();
+        }
+        return redirect()->back()
+            ->withErrors('Exclusão não será possível, pois há colaboradores '
+            .'cadastrados nesta empresa.');
     }
 }

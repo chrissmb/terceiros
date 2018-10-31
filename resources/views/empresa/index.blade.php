@@ -6,6 +6,9 @@
 
 <h3>Empresas</h3>
 
+@component('errors')
+@endcomponent
+
 <a class="btn btn-success" href="/empresas/create" role="button">Cadastrar</a>
 
 <table class="table">
