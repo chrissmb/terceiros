@@ -8,7 +8,13 @@
 
 <form class="form-inline" action="/" method="GET">
     <label class="sr-only" for="nome">Pesquisar por nome</label>
-    <input type="text" class="form-control m-1" name="nome" placeholder="Pesquisar por nome"/>
+    <input type="text" class="form-control m-1" name="nome" placeholder="Nome"/>
+    <select class="form-control m-1" name="empresa_id">
+        <option value="0">Selecione a empresa:</option>
+        @foreach ($empresas as $empresa)
+            <option value="{{ $empresa->id }}">{{ $empresa->nome }}</option>
+        @endforeach
+    </select>
     <input type="submit" class="btn btn-primary m-1" value="Pesquisar"/>
 </form>
 

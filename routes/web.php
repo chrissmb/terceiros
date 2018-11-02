@@ -19,17 +19,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', function (Request $request) {
-    if ($request->has('nome')) {
-        $colaboradores = Colaborador::where(
-            'nome', 'like', $request->nome.'%')->get();
-        return view('inicio', ['colaboradores' => $colaboradores]);
-        
-    }
-    return view('inicio', [
-        'colaboradores' => Colaborador::orderBy('nome', 'desc')->get()
-    ]);
-});
+Route::get('/', 'InicioController@index');
 
 Route::resource('empresas', 'EmpresaController')->middleware('auth');
 

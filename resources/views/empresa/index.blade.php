@@ -9,7 +9,7 @@
 @component('errors')
 @endcomponent
 
-<a class="btn btn-success" href="/empresas/create" role="button">Cadastrar</a>
+<a class="btn btn-success m-1" href="/empresas/create" role="button">Nova empresa</a>
 
 <table class="table">
     <thead>
