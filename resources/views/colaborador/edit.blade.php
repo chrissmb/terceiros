@@ -6,8 +6,6 @@
 
 <h3>Edição de colaborador</h3>
 
-{{ $colaborador->cpf }}
-
 @component('errors')
 @endcomponent
 
